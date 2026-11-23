@@ -1,0 +1,163 @@
+:root{
+  --bg:#2A0A10; --ink:#F5E9D0; --teal:#4A1119; --coral:#B3202F; --gold:#D4AF37;
+  --card:#3D0F18; --line:#6E2733; --muted:#C9AE95;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+h1,h2,h3,.logo{font-family:'Bricolage Grotesque','DM Sans',sans-serif}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  background:var(--teal);color:#F5E9D0;padding:12px 24px;border-bottom:2px solid var(--gold)}
+.logo{font-size:1.6rem;font-weight:800;color:var(--gold);text-decoration:none;margin-right:auto}
+.topbar nav{display:flex;gap:4px;flex-wrap:wrap}
+.topbar nav button{background:none;border:0;color:#fff;padding:8px 12px;border-radius:8px}
+.topbar nav button:hover,.topbar nav button.on{background:rgba(255,255,255,.15)}
+.auth{display:flex;align-items:center;gap:10px;font-size:.9rem}
+.badge{background:var(--coral);border-radius:99px;padding:1px 8px;font-size:.75rem}
+
+main{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+.page{display:none}.page.active{display:block}
+h2{font-size:1.9rem;margin-bottom:16px}
+.muted{color:var(--muted)}.center{text-align:center}
+.hero{background:linear-gradient(135deg,#5E1623,#2A0A10);border:1px solid var(--gold);color:#F5E9D0;border-radius:18px;padding:40px 32px;margin-bottom:28px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);max-width:640px;line-height:1.15}
+.hero p{margin-top:10px;color:#E3CFA8}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.film{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.poster{position:relative;height:300px;display:flex;align-items:flex-end;padding:14px;color:#fff;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.3rem;line-height:1.1}
+.film:hover{border-color:var(--gold)}
+.film-body{padding:14px}
+.film-body small{color:var(--muted)}
+.film-body .price{font-weight:700;margin:6px 0 12px}
+
+.btn{background:var(--coral);color:#fff;border:0;border-radius:10px;padding:10px 18px;font-weight:700}
+.btn:hover{filter:brightness(.92)}
+.btn.small{padding:6px 14px}
+.btn.full{width:100%;margin-top:14px}
+.btn.ghost{background:none;color:var(--gold);border:1px solid var(--gold)}
+.btn.ghost:hover{background:rgba(212,175,55,.12)}
+
+.two-col{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+.cart-item{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
+.cart-item b{display:block}
+.cart-item .rm{background:none;border:0;color:var(--coral);font-weight:700}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;position:sticky;top:80px}
+.panel h3{margin:14px 0 8px;font-size:1.1rem}.panel h3:first-child{margin-top:0}
+.row{display:flex;justify-content:space-between;padding:6px 0}
+.row.total{border-top:2px dashed var(--line);margin-top:6px;padding-top:12px;font-size:1.15rem}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pay label{border:1px solid var(--line);border-radius:10px;padding:10px;cursor:pointer;font-size:.9rem;display:flex;gap:6px;align-items:center}
+.pay label:has(input:checked){border-color:var(--gold);background:#5A1824}
+.msg{margin-top:10px;font-size:.9rem;color:var(--coral)}
+.empty{background:var(--card);border:2px dashed var(--line);border-radius:12px;padding:30px;text-align:center;color:var(--muted)}
+
+/* tiket */
+.tickets{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.ticket{display:flex;background:var(--card);border-radius:14px;border:1px solid var(--line);overflow:hidden}
+.t-main{flex:1;padding:16px}
+.t-main h4{font-family:'Bricolage Grotesque',sans-serif;font-size:1.2rem;margin-bottom:6px}
+.t-main p{font-size:.9rem}
+.t-stub{width:110px;background:var(--teal);color:#fff;text-align:center;padding:14px 8px;
+  border-left:2px dashed var(--bg);display:flex;flex-direction:column;justify-content:center;gap:6px;font-size:.8rem}
+.t-stub b{font-size:1.1rem;color:var(--gold)}
+.code{font-family:monospace;letter-spacing:1px}
+
+/* tim */
+.team .member{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.avatar{border:3px solid var(--gold);width:84px;height:84px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;
+  color:#fff;font-size:1.8rem;font-weight:800;font-family:'Bricolage Grotesque',sans-serif}
+.member small{color:var(--muted)}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:grid;place-items:center;z-index:20;padding:16px}
+.hidden{display:none!important}
+.modal-box{background:var(--card);color:var(--ink);border:1px solid var(--gold);border-radius:16px;padding:24px;width:100%;max-width:400px;position:relative}
+.modal-box h3{font-size:1.4rem;margin-bottom:6px}
+.modal-box label{display:block;margin-top:12px;font-weight:500;font-size:.9rem}
+.modal-box input,.modal-box select{width:100%;padding:10px;margin-top:4px;border:1px solid var(--line);border-radius:8px;font:inherit;background:var(--bg);color:var(--ink)}
+.close{position:absolute;top:10px;right:14px;background:none;border:0;font-size:1.6rem;color:var(--ink)}
+.qty{display:flex;align-items:center;gap:14px;margin-top:6px}
+.qty button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.2rem}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);background:var(--gold);color:#2A0A10;font-weight:700;
+  padding:12px 20px;border-radius:10px;transition:transform .25s;z-index:30}
+.toast.show{transform:translate(-50%,0)}
+
+@media(max-width:800px){.two-col{grid-template-columns:1fr}.panel{position:static}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* gambar poster & foto profil */
+.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.poster::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent 55%)}
+.poster span{position:relative;z-index:1}
+.avatar{position:relative;overflow:hidden;width:120px;height:120px;font-size:2.2rem}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+
+/* ===================== FITUR TAMBAHAN ===================== */
+/* ===== TAMBAHAN FITUR (jangan hapus style.css lama) ===== */
+
+/* cari & filter */
+.filter{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.filter input{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:12px;font:inherit;background:var(--card);color:var(--ink)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;font-size:.9rem}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#2A0A10;font-weight:700}
+
+/* kursi */
+.modal-box.wide{max-width:460px;max-height:92vh;overflow-y:auto}
+.screen{background:var(--gold);color:#2A0A10;text-align:center;font-size:.75rem;letter-spacing:4px;padding:6px;border-radius:0 0 40px 40px;margin:14px 8% 16px}
+.seatmap{display:flex;flex-direction:column;gap:6px;align-items:center}
+.seat-row{display:flex;gap:5px;align-items:center}
+.seat-row .lbl{width:18px;font-size:.75rem;color:var(--muted);text-align:center}
+.seat{width:28px;height:28px;border-radius:6px 6px 3px 3px;border:1px solid var(--gold);background:transparent;color:var(--ink);font-size:.65rem;padding:0}
+.seat:nth-child(6){margin-right:14px}
+.seat.taken{background:var(--line);border-color:var(--line);color:transparent;cursor:not-allowed}
+.seat.pick{background:var(--coral);border-color:var(--coral);color:#fff}
+.legend{display:flex;gap:14px;justify-content:center;font-size:.8rem;color:var(--muted);margin:14px 0 6px;flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px;border:1px solid var(--gold)}
+.legend .t{background:var(--line);border-color:var(--line)}.legend .p{background:var(--coral);border-color:var(--coral)}
+
+/* promo */
+.promo{display:flex;gap:8px;margin:12px 0 4px}
+.promo input{flex:1;min-width:0;padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;text-transform:uppercase;background:var(--card);color:var(--ink)}
+.promo-msg{font-size:.85rem;margin-bottom:6px}
+.promo-msg.ok{color:#7fe0a8}.promo-msg.err{color:var(--coral)}
+.row.disc{color:#7fe0a8}
+
+/* riwayat */
+.order{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+.order-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.status{background:#14452f;color:#a6e9c6;border-radius:99px;padding:2px 12px;font-size:.8rem;font-weight:700}
+.order ul{list-style:none;border-top:1px dashed var(--line);padding-top:10px}
+.order li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;font-size:.92rem}
+
+/* tombol tema */
+.btn.theme{background:rgba(255,255,255,.15)}
+
+
+/* ===== MODE TERANG (lewat tombol) ===== */
+html.light{--bg:#FBF3E6;--ink:#3A1018;--teal:#7A1A27;--card:#FFFFFF;--line:#E3CFB8;--muted:#7A5A52}
+html.light .modal-box input,html.light .modal-box select,html.light .qty button{background:#fff}
+html.light .pay label:has(input:checked){background:#F7E2C4}
+html.light .status{background:#d9f2e6;color:#14663f}
+html.light .promo-msg.ok,html.light .row.disc{color:#1b8a5a}
+html.light .screen{background:#7A1A27;color:#F5E9D0}
+
+/* ===== DETAIL FILM ===== */
+.poster.klik{cursor:pointer}
+.rating-badge{position:absolute;top:10px;right:10px;z-index:2;background:var(--gold);color:#2A0A10;font-style:normal;font-weight:700;font-size:.75rem;padding:2px 9px;border-radius:99px}
+.btn-detail{margin-top:8px!important}
+.modal-box.detail{max-width:440px;max-height:92vh;overflow-y:auto}
+.d-poster{position:relative;height:220px;border-radius:10px;overflow:hidden;margin-bottom:14px}
+.d-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.modal-box.detail h4{margin:14px 0 4px;color:var(--gold);font-size:.95rem}
+.rating{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:6px;padding:0 8px;font-size:.8rem;font-weight:700;margin-left:4px}
+.modal-box.detail a.btn{display:block;text-align:center;text-decoration:none}
+
+html.light .btn.ghost{color:#7A1A27;border-color:#7A1A27}
